@@ -1,0 +1,98 @@
+Assignment: Design an Employee Payroll Module (OOP Based)
+Scenario
+
+1)You are working in the Payroll Automation Team of a company.
+2)The API Team is developing REST endpoints to store and fetch employee payroll data.
+3)Before they can do that, they need you to design a Python OOP module that manages:
+
+Employee personal and job details:
+
+Payroll calculations (basic salary, allowances, deductions, tax)
+Utility validations (age, employee ID format, etc.)
+Your design will be imported and reused by the API team.
+
+Part 1 — Instructions:
+You need to create three classes:
+
+Class: Employee
+Purpose: Represent a single employee’s identity and job details.
+
+Attributes:
+
+emp_id
+name
+age
+department
+base_salary
+
+Methods:
+
+__init__() → initialize employee details
+show_details() → print employee info in readable format
+
+
+Class: Payroll (inherits from Employee)
+
+Purpose: Handle payroll calculations.
+
+Attributes (in addition to inherited ones):
+
+hra (House Rent Allowance)
+bonus
+tax
+Methods:
+
+calculate_gross_salary() → base_salary + hra + bonus
+calculate_net_salary() → gross - tax
+show_payslip() → nicely formatted salary breakdown
+
+
+Class: PayrollUtility
+
+Purpose: Common helper logic (static methods).
+
+Methods (all static):
+
+validate_age(age) → must be between 18 and 60
+validate_emp_id(emp_id) → must be exactly 6 digits
+calculate_tax(salary) →
+
+<= 250000 → 0%
+<= 500000 → 5%
+<= 1000000 → 20%
+> 1000000 → 30%
+
+
+Part 2 — How the API Team Will Use It
+
+The API team won’t handle any logic; they will just call your classes.
+
+Here’s how they will integrate it 
+
+from payroll_module import Employee, Payroll, PayrollUtility
+
+# Step 1: Validate employee data
+if PayrollUtility.validate_age(25) and PayrollUtility.validate_emp_id("123456"):
+    
+    # Step 2: Create employee record
+    emp = Payroll("123456", "Ravi", 25, "IT", 500000, hra=20000, bonus=10000)
+    
+    # Step 3: Calculate tax and net salary
+    tax = PayrollUtility.calculate_tax(emp.base_salary)
+    emp.tax = tax
+    
+    # Step 4: Show payroll summary
+    emp.show_payslip()
+else:
+    print("Invalid employee details!")
+
+
+Part 3 — Expected Output (Example)
+Employee Created Successfully
+Employee ID: 123456
+Name: Priya
+Department: IT
+
+Gross Salary: ₹530000
+Tax: ₹100000
+Net Salary: ₹430000
