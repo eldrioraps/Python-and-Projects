@@ -4,3 +4,5 @@ streamlit
 fastapi
 pydantic
 requests
+pandas
+numpy

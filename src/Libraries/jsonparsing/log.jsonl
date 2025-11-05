@@ -1,0 +1,10 @@
+{"timestamp": "2025-11-04T10:35:12Z", "level": "INFO", "service": "auth_service", "message": "User login successful", "user_id": 1001}
+{"timestamp": "2025-11-04T10:36:45Z", "level": "INFO", "service": "auth_service", "message": "User logout successful", "user_id": 1001}
+{"timestamp": "2025-11-04T10:37:05Z", "level": "WARNING", "service": "payment_gateway", "message": "Payment took longer than expected", "user_id": 1002}
+{"timestamp": "2025-11-04T10:38:22Z", "level": "ERROR", "service": "db_service", "message": "Database connection failed", "user_id": 1003}
+{"timestamp": "2025-11-04T10:39:58Z", "level": "INFO", "service": "file_upload", "message": "File uploaded successfully", "user_id": 1004}
+{"timestamp": "2025-11-04T10:41:10Z", "level": "ERROR", "service": "file_upload", "message": "File size exceeds allowed limit", "user_id": 1005}
+{"timestamp": "2025-11-04T10:42:32Z", "level": "INFO", "service": "notification_service", "message": "Email sent to user", "user_id": 1001}
+{"timestamp": "2025-11-04T10:43:44Z", "level": "WARNING", "service": "notification_service", "message": "Email delivery delayed", "user_id": 1002}
+{"timestamp": "2025-11-04T10:44:59Z", "level": "ERROR", "service": "auth_service", "message": "Invalid credentials provided", "user_id": 1006}
+{"timestamp": "2025-11-04T10:46:25Z", "level": "INFO", "service": "payment_gateway", "message": "Payment completed successfully", "user_id": 1007}
