@@ -1,0 +1,38 @@
+pandas it is an open source library that is used across ML projects or data analytics project 
+for data maipulation wrangling transformations and analysis.
+
+suppose we have to prepare a ml model to predict the outcomes based 
+on input features required for an enterprise dataset.
+medical invoices:
+customer
+quantity
+price
+medicene type
+disease
+date 
+address
+total invoice amount
+
+
+now you have to prepare a ml model which helps the pharmacy to maintain the inventory.
+you will take the input fetaures as an categories that will predict the inventory output
+
+How to get teh proper data and how to do the tweaks.
+invoices an as image on the sharepoint 
+now what you can extract teh data and make the csv out of it, once you get teh csv now we can manipulate the data like important fields
+removing of nulls, redundant data removal and categorisation of fieldsn 
+as reuired.
+
+so do all this we need some softyware trhat is python for now.
+so pandas here allow us to semalessly integrate the architect and automate the process.
+
+so we will make a end to end solution for this proicess an dpandas basically will allowus to prepare the 
+required datasetv for the ML and all the tweaks that need to be done will bedoine in pandas.
+
+
+2) log processing: getting teh log files on email and then integrate that 
+with python and storte the processed data into sql table an dthen make bi report on it.
+
+coooking:  view count 0
+ML will understand that if the creiteria is cooking then viewers are not ready for it
+may be that video had copyright and rejected from youtube.

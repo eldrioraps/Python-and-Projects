@@ -1,0 +1,131 @@
+Overview of Pandas Functions and Methods
+Pandas is built around two primary data structures: Series (1D labeled arrays) and DataFrame (2D labeled tables). Most functions are methods of these objects, but some are top-level functions in the pandas namespace. Below, I’ve grouped key functions/methods by their purpose, focusing on those most relevant for data manipulation, analysis, and I/O.
+1. Data Creation and Input/Output
+These functions handle creating pandas objects and reading/writing data from various formats.
+
+pd.DataFrame(data, index, columns): Creates a DataFrame from dictionaries, arrays, or other data structures.
+pd.Series(data, index): Creates a Series from a list, array, or dictionary.
+pd.read_csv(filepath, **kwargs): Reads CSV files into a DataFrame; supports delimiters, encoding, and more.
+pd.read_excel(filepath, sheet_name): Imports Excel files into a DataFrame.
+pd.read_sql(query, con): Reads SQL query or table into a DataFrame.
+pd.read_json(filepath_or_buffer): Loads JSON data into a DataFrame.
+df.to_csv(filepath, index): Writes DataFrame to a CSV file.
+df.to_excel(filepath, sheet_name): Exports DataFrame to Excel.
+pd.concat(objs, axis, join): Concatenates DataFrames or Series along an axis (row-wise or column-wise).
+pd.merge(left, right, how, on): Joins DataFrames using SQL-like joins (inner, left, right, outer).
+
+Importance: These are the entry and exit points for data in pandas, enabling seamless integration with files (CSV, Excel, JSON) and databases.
+2. Data Inspection and Summary
+Methods to explore and summarize data.
+
+df.head(n): Returns first n rows (default 5).
+df.tail(n): Returns last n rows.
+df.info(): Summarizes DataFrame (columns, dtypes, non-null counts).
+df.describe(): Generates descriptive statistics (count, mean, std, min, max, quartiles).
+df.shape: Returns tuple of (rows, columns).
+df.columns: Lists column names.
+df.index: Returns index (row labels).
+df.dtypes: Shows data types of each column.
+df.isna(): Detects missing values (returns boolean DataFrame).
+df.value_counts(): Counts unique values in a Series.
+
+Importance: Critical for initial data exploration and understanding structure, types, and missing data.
+3. Data Cleaning and Preprocessing
+Methods to handle missing data, duplicates, and type conversions.
+
+df.dropna(axis, how, subset): Removes rows/columns with missing values (NaN, None).
+df.fillna(value, method): Fills missing values with a constant or method (e.g., forward fill).
+df.replace(to_replace, value): Replaces specific values in DataFrame/Series.
+df.drop_duplicates(subset, keep): Removes duplicate rows based on subset of columns.
+df.astype(dtype): Converts data type of columns (e.g., int to float).
+pd.to_datetime(arg): Converts argument to datetime.
+pd.to_numeric(arg, errors): Converts to numeric, with options to handle errors.
+
+Importance: Essential for preparing messy real-world data for analysis by handling missing values, duplicates, and type mismatches.
+4. Data Selection and Filtering
+Methods to subset data by rows, columns, or conditions.
+
+df.loc[label]: Label-based indexing for rows/columns.
+df.iloc[integer]: Integer-based indexing for rows/columns.
+df.at[label, column]: Fast access to a single value by label.
+df.iat[row, column]: Fast access to a single value by integer position.
+df.query(expr): Filters rows using a string expression (e.g., "column > 5").
+df.filter(items, like, regex): Subsets columns/rows by names or patterns.
+df.select_dtypes(include, exclude): Selects columns by data type (e.g., include='float64').
+
+Importance: Allows precise data extraction for analysis, supporting both label and position-based access.
+5. Data Transformation and Manipulation
+Methods for reshaping, grouping, and applying functions.
+
+df.groupby(by, axis): Groups data by columns for aggregation (e.g., mean, sum).
+df.agg(func): Applies aggregation functions (e.g., mean, sum) to groups or columns.
+df.transform(func): Applies a function to each group and returns transformed data.
+df.apply(func, axis): Applies a function along an axis (row/column-wise).
+df.pivot_table(values, index, columns, aggfunc): Creates a pivot table with aggregated values.
+df.melt(id_vars, value_vars): Unpivots DataFrame from wide to long format.
+df.stack(): Pivots columns to rows (reshapes to long format).
+df.unstack(): Pivots rows to columns (reshapes to wide format).
+df.sort_values(by, ascending): Sorts DataFrame by specified columns.
+df.sort_index(): Sorts by index.
+df.rename(columns, index): Renames columns or index labels.
+df.reset_index(): Resets index to default integers, moving index to columns.
+df.set_index(keys): Sets one or more columns as the index.
+
+Importance: Enables flexible data reshaping and aggregation, critical for summarizing and restructuring data for analysis or visualization.
+6. Mathematical and Statistical Operations
+Methods for numerical computations and statistics.
+
+df.mean(axis): Computes mean along an axis.
+df.median(): Computes median.
+df.std(): Computes standard deviation.
+df.var(): Computes variance.
+df.sum(): Sums values.
+df.min(), df.max(): Returns minimum/maximum values.
+df.cumsum(), df.cumprod(): Computes cumulative sum/product.
+df.corr(method): Computes pairwise correlation (e.g., Pearson, Spearman).
+df.cov(): Computes covariance matrix.
+df.rolling(window): Provides rolling window calculations (e.g., moving average).
+df.expanding(): Provides expanding window calculations (cumulative stats).
+
+Importance: Supports statistical analysis and time-series operations, vital for quantitative tasks.
+7. Joining and Merging
+Methods to combine multiple DataFrames or Series.
+
+pd.merge(left, right, how, on): SQL-like joins (inner, left, right, outer).
+df.join(other, on, how): Joins DataFrames on index or key columns.
+pd.concat(objs, axis): Concatenates along rows (axis=0) or columns (axis=1).
+df.append(other): (Deprecated in 2.0; use concat) Appends rows.
+
+Importance: Enables combining datasets from different sources, a common task in data integration.
+8. Time Series and Categorical Data
+Specialized methods for temporal and categorical data.
+
+pd.to_datetime(arg): Converts to datetime objects.
+df.resample(rule): Resamples time-series data (e.g., daily to monthly).
+df.shift(periods): Shifts data by periods (useful for time-series lags).
+df.asfreq(freq): Converts time series to specified frequency.
+pd.Categorical(values, categories): Creates categorical data type for ordered/unordered categories.
+df.cat.codes: Accesses integer codes for categorical data.
+df.cat.rename_categories(): Renames categories.
+
+Importance: Crucial for time-series analysis (e.g., finance, IoT) and handling categorical variables (e.g., ML preprocessing).
+9. Visualization Support
+Methods to integrate with plotting libraries (e.g., Matplotlib).
+
+df.plot(kind, **kwargs): Creates plots (line, bar, scatter, etc.) via Matplotlib.
+df.hist(column, bins): Plots histograms for specified columns.
+df.boxplot(column): Creates box plots for visualizing distributions.
+pd.plotting.scatter_matrix(df): Plots pairwise scatter plots for multiple columns.
+
+Importance: Simplifies data visualization for quick insights, though often used with Matplotlib/Seaborn for customization.
+10. Miscellaneous Utilities
+Other useful functions for specific tasks.
+
+pd.get_dummies(df, columns): Converts categorical variables into dummy/indicator variables (one-hot encoding).
+pd.cut(x, bins): Bins continuous data into discrete intervals.
+pd.qcut(x, q): Bins data into quantiles (e.g., quartiles).
+df.sample(n, frac, random_state): Randomly samples rows.
+df.nlargest(n, columns), df.nsmallest(n, columns): Returns top/bottom n rows based on column values.
+pd.options.display: Configures display settings (e.g., max_rows, precision).
+
+Importance: Provides utility functions for ML preprocessing, sampling, and customization.
