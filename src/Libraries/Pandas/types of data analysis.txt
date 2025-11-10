@@ -1,0 +1,19 @@
+4 types of data analysis:
+1) Descriptive analysis: You are understanding what happended
+summarize, aggregation, data visualization
+eg:churn analysis for the last quarter
+
+2) Diagnostic aNALYSIS: Understand the situations
+what was the reason for the things that happened.
+Hypothesis testing(NUll Testing, ANOVA testing,t-test)
+
+two scenarios: 
+ravi left the airfibre because of network issue
+ravi do not left the airfibre service becayuse of network issue
+
+3) Predictive ananlysis: What will happen next
+using historical dataset to make predictions.
+ML models,time series forecasting.
+
+4) Prescriptive analysis: Suggesting what need to be done, recommending actions based on predictions
+Decision tree 
